@@ -14,7 +14,7 @@ body {
     width: inherit;
     margin: 0;
     max-width: unset;
-    background-color: #2699FB;
+    background: transparent linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 6%, #0055D4 100%) 0% 0% no-repeat padding-box;
     padding: 0;
 }
 
@@ -25,6 +25,9 @@ body {
 .topnavbar i {
     color: white;
 }
+.topnavbar {
+    background-color: #2699FB;
+}
 
 .main {
     display: flex;
@@ -33,8 +36,11 @@ body {
 }
 
 .mainmap {
+    display: flex;
     width: 80%;
     margin-right: 2em;
+    align-items: center;
+    justify-content: center;
 }
 .foot.navbar-dark {
     height: 15%;
@@ -52,6 +58,13 @@ body {
 
 .leftnavbar{
     width: 17%;
+    height: inherit;
+    margin-top: 4em;
+}
+
+.leftnavbar nav.navbar.navbar-dark {
+    align-items: center;
+    justify-content: center;
 }
 
 .foot {
