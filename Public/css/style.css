@@ -1,0 +1,155 @@
+body {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: inherit;
+    width: inherit;
+    align-items: center;
+    background: transparent linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 6%, #0055D4 100%) 0% 0% no-repeat padding-box;
+    margin: 0;
+    padding: 0;
+    max-width: unset;
+}
+
+
+/*left side*/
+.logo {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 40%;
+}
+
+.logo img {
+    padding: 2em;
+}
+
+
+/*right side*/
+.rightBox {
+    flex-basis: 50%;
+    margin: 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    padding: 2em
+}
+
+.rightBox button {
+    margin-top: 2em;
+}
+
+.information {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+/* slider */
+#carouselExampleIndicators {
+    color: black;
+}
+
+.carousel-caption {
+    background: transparent url('../img/bg.svg') 0% 0%;
+}
+
+.carousel-caption h1 {
+    color: #2699FB;
+}
+
+.carousel-caption {
+    color: #2699FB;
+    font-weight: bold;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+    filter: invert(1);
+}
+
+button {
+    margin: 1em 1em 1em 1em;
+    color: white;
+    background: #2699FB 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border: none;
+    min-width: 10em;
+    line-height: 2.5em;
+    font-size: 1em;
+    border-radius: 4px;
+    opacity: 1;
+}
+
+
+#rightBox2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    justify-items: center;
+
+    background: transparent url('../img/bg2.svg');
+}
+
+#rightBox2 h1,
+#rightBox2 h2 {
+    color: #2699FB;
+}
+
+#rightBox2 h3 {
+    color: white;
+}
+
+/* log in form */
+#loginform {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#login {
+    display: flex;
+     margin-top: 3em;
+     margin-bottom: 2em;
+ }
+
+#login input {
+    padding-left: 0.5em;
+    margin: 0em 1em 1em 1em;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 2px solid #BCE0FD;
+    border-radius: 4px;
+
+    color: #2699FB;
+    line-height: 2.5em;
+    font-size: 1em;
+}
+
+#login {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 50%;
+    width: 40%;
+    opacity: 1;
+}
+
+form > input {
+    padding-left: 0.5em;
+    margin: 0 1em 1em 1em;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 2px solid #BCE0FD;
+    border-radius: 4px;
+
+    color: #2699FB;
+    line-height: 2.5em;
+    font-size: 1em;
+}

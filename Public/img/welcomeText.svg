@@ -1,0 +1,13 @@
+<svg id="Component_1_2" data-name="Component 1 – 2" xmlns="http://www.w3.org/2000/svg" width="427" height="122" viewBox="0 0 427 122">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        font-size: 45px;
+        font-family: NotoSerif-Regular, Noto Serif;
+      }
+    </style>
+  </defs>
+  <text id="WELCOME_TO_PARKING_PLANNER" data-name="WELCOME TO 
+PARKING PLANNER" class="cls-1" transform="translate(213 48)"><tspan x="-158.963" y="0">WELCOME TO </tspan><tspan x="-212.76" y="61">PARKING PLANNER</tspan></text>
+</svg>
