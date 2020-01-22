@@ -22,10 +22,10 @@ class Routing
                 'controller' => 'SecurityController',
                 'action' => 'logout'
             ],
-//            'register' => [
-//                'controller' => 'SecurityController',
-//                'action' => 'register'
-//            ]
+            'register' => [
+                'controller' => 'SecurityController',
+                'action' => 'register'
+            ]
         ];
     }
 

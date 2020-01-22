@@ -45,7 +45,7 @@
 
                 <div class="formreg">
                     <input name="cardNumber" type="text" required placeholder="card number">
-                    <input name="cardholnerName" type="text" required placeholder="cardholder name">
+                    <input name="cardholderName" type="text" required placeholder="cardholder name">
                     <input name="expireDate" type="text" required placeholder="expire date">
                     <input name="CVV" type="password" required placeholder="cvv">
                     <button type="submit">CONTINUE</button>
