@@ -120,6 +120,7 @@ if (!in_array('ROLE_USER', $_SESSION['role'])) {
                     <div class="top-left" id="free-parking">
                         Free parking - 30 points
                     </div>
+                    <div class="amount" id="Aparking"></div>
                 </div>
                 <div class="square">
                     <img onclick="getBonus('<?= $_SESSION['email'];?>', 'ticket')" src="../../Public/img/bonus/2.svg">
@@ -127,6 +128,7 @@ if (!in_array('ROLE_USER', $_SESSION['role'])) {
                         Free public transport ticket<br>
                         - 15 points
                     </div>
+                    <div class="amount" id="Aticket"></div>
                 </div>
                 <div class="square">
                     <img onclick="getBonus('<?= $_SESSION['email'];?>', 'sticker')" src="../../Public/img/bonus/4.svg">
@@ -134,6 +136,7 @@ if (!in_array('ROLE_USER', $_SESSION['role'])) {
                         Free saving planet sticker<br>
                         - 50 points
                     </div>
+                    <div class="amount" id="Asticker"></div>
                 </div>
             </div>
 

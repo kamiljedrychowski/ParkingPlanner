@@ -129,3 +129,12 @@ text-align: center;
     color: #2699FB;
     font-size: 0.8em;
 }
+
+.amount {
+    position: absolute;
+    top: 60%;
+    left: 5%;
+    color: #2699FB;
+    font-size: 6em;
+    color: black;
+}

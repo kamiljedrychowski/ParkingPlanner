@@ -39,23 +39,26 @@ class BoardController extends AppController
             return;
         }
         $user = new UserRepository();
-        $var = $user->getPoints((string)$_POST['mail']);
+        $var = json_decode($user->getPoints((string)$_POST['mail']));
 
         if($_POST['bonusName'] == 'parking'){
-            if($var<30)
+            if($var[0]<30)
             {
+                echo '[]';
                 return;
             }
         }
         elseif ($_POST['bonusName'] == 'ticket'){
-            if($var<15)
+            if($var[0]<15)
             {
+                echo '[]';
                 return;
             }
         }
         elseif ($_POST['bonusName'] == 'sticker'){
-            if($var<50)
+            if($var[0]<50)
             {
+                echo '[]';
                 return;
             }
         }

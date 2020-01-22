@@ -5,9 +5,12 @@ function getPoints(mail) {
         data: {
             mail: mail
         },
-        dataType: 'text',
+        dataType: 'json',
         success: function (points) {
-            $('#bonuspoints').text(points);
+            $('#bonuspoints').text(points[0]);
+            $('#Aparking').text(points[1]);
+            $('#Aticket').text(points[2]);
+            $('#Asticker').text(points[3]);
         }
     })
 }
@@ -20,10 +23,14 @@ function getBonus(mail, bonusName) {
             mail: mail,
             bonusName: bonusName,
         },
-        dataType: 'text',
+        dataType: 'json',
         success: function (points) {
-            if(points)
-                $('#bonuspoints').text(points);
+            if(points.length>0){
+                $('#bonuspoints').text(points[0]);
+                $('#Aparking').text(points[1]);
+                $('#Aticket').text(points[2]);
+                $('#Asticker').text(points[3]);
+            }
             else
                 alert("Not enought bonus points :(");
         }
