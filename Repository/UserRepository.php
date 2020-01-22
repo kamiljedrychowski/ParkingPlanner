@@ -92,4 +92,41 @@ class UserRepository extends Repository
             $user['surname']
         );
     }
+
+    public function getPoints(string $email): int
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT points FROM user, user_data, bonus WHERE email = :email and user.id_user_data=user_data.id_user_data and user.id_bonus=bonus.id_bonus
+        ');
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $points = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $points['points'];
+    }
+
+    public function getBonus(string $email, string $bonusName)
+    {
+        if($bonusName == 'parking'){
+            $stmt = $this->database->connect()->prepare("
+            CALL addParking('$email')
+            ");
+            $stmt->execute();
+        }
+        elseif ($bonusName == 'ticket'){
+            $stmt = $this->database->connect()->prepare("
+            CALL addPublicTransport('$email')
+            ");
+            $stmt->execute();
+        }
+        elseif ($bonusName == 'sticker'){
+            $stmt = $this->database->connect()->prepare("
+            CALL addStickers('$email')
+            ");
+            $stmt->execute();
+        }
+        return $this->getPoints($email);
+    }
+
 }

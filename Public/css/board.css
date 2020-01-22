@@ -70,3 +70,62 @@ body {
 .foot {
     color: white;
 }
+
+#main2 {
+    display: flex;
+    flex-direction: column;
+    padding: 5em;
+}
+
+.boxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.square {
+    margin: 1em;
+    position: relative;
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+/* Top left text */
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+.center {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    color: #2699FB;
+}
+
+#free-parking {
+color: white;
+}
+
+#free-ticket {
+color: #0B5CD6;
+text-align: center;
+}
+
+
+#bonuspoints {
+    position: absolute;
+    top: 25%;
+    left: 30%;
+    color: #2699FB;
+    font-size: 5em;
+}
+
+#aboutpoints {
+    position: absolute;
+    top: 70%;
+    left: 5%;
+    color: #2699FB;
+    font-size: 0.8em;
+}

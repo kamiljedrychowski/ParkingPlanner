@@ -25,6 +25,14 @@ class Routing
             'register' => [
                 'controller' => 'SecurityController',
                 'action' => 'register'
+            ],
+            'getpoints' => [
+                'controller' => 'BoardController',
+                'action' => 'getpointss'
+            ],
+            'getbonus' => [
+                'controller' => 'BoardController',
+                'action' => 'getbonuss'
             ]
         ];
     }
