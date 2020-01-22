@@ -1,9 +1,19 @@
+<?php
+if (!isset($_SESSION['id']) and !isset($_SESSION['role']) and !isset($_SESSION['name']) and !isset($_SESSION['surname']) and !isset($_SESSION['email'])) {
+    die('You are not logged in!');
+}
+
+if (!in_array('ROLE_USER', $_SESSION['role'])) {
+    die('You do not have permission to watch this page!');
+}
+?>
+
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="Stylesheet" type="text/css" href="../Public/css/board.css"/>
+    <link rel="Stylesheet" type="text/css" href="../../Public/css/board.css"/>
     <script src="https://kit.fontawesome.com/d97e416d7e.js" crossorigin="anonymous"></script>
     <title>ParkingPlanner</title>
 </head>
@@ -15,7 +25,7 @@
             <a class="nav-link" href="?page=logout">
                 <i class="fas fa-sign-out-alt">Logout</i>
             </a>
-            <img src="../Public/img/smallLogo.svg" alt="small logo">
+            <img src="../../Public/img/smallLogo.svg" alt="small logo">
             <div class="buttons">
                 <i class="fas fa-user"></i>
                 <i class="fas fa-bell"></i>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <link rel="Stylesheet" type="text/css" href="../Public/css/register.css"/>
-    <link rel="Stylesheet" type="text/css" href="../Public/css/common.css"/>
+    <link rel="Stylesheet" type="text/css" href="../../Public/css/register.css"/>
+    <link rel="Stylesheet" type="text/css" href="../../Public/css/common.css"/>
 
     <title>Register</title>
 </head>
