@@ -60,11 +60,9 @@ if (!in_array('ROLE_USER', $_SESSION['role'])) {
                     <div class="button">
                         <i class="far fa-calendar-alt"></i> History
                     </div>
-<!--TODO-->
-<!--                    <div onclick="SwapDivsWithClick('main1', 'main2')" class="button">-->
-                    <button onclick="SwapDivsWithClick('main1', 'main2'); getPoints('<?= $_SESSION['email'];?>')" class="button">
+                    <div onclick="SwapDivsWithClick('main1', 'main2'); getPoints('<?= $_SESSION['email'];?>')" class="button">
                         <i class="fas fa-star"></i> Bonus Points
-<!--                    </div>-->
+                    </div>
                     </button>
                     <div class="button">
                         <i class="fas fa-bell"></i> Notifications
@@ -146,7 +144,7 @@ if (!in_array('ROLE_USER', $_SESSION['role'])) {
 
     <div class="foot">
         <nav class="navbar navbar-dark">
-            ParkingPlannerFooter
+            ParkingPlanner
             <div class="buttons">
                 <i class="fab fa-instagram"></i>
                 <i class="fab fa-twitter"></i>
