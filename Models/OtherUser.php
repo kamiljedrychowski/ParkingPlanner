@@ -1,29 +1,32 @@
 <?php
 
-class User
+class OtherUser
 {
     private $id = null;
     private $email;
-    private $password;
     private $name;
     private $surname;
     private $role;
+    private $points;
+    private $platenumber;
 
     public function __construct(
         int $id,
         string $email,
-        string $password,
         string $name,
         string $surname,
+        int $points,
+        string $platenumber,
         string $role
     )
     {
         $this->id = $id;
         $this->email = $email;
-        $this->password = $password;
         $this->name = $name;
         $this->surname = $surname;
         $this->role = $role;
+        $this->points = $points;
+        $this->platenumber = $platenumber;
     }
 
     public function getId(): int
@@ -36,10 +39,6 @@ class User
         return $this->email;
     }
 
-    public function getPassword(): string
-    {
-        return $this->password;
-    }
 
     public function getRole(): string
     {
@@ -55,5 +54,16 @@ class User
     {
         return $this->surname;
     }
+
+    public function getPoints(): int
+    {
+        return $this->points;
+    }
+
+    public function getPlatenumber(): string
+    {
+        return $this->platenumber;
+    }
+
 
 }

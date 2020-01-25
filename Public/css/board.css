@@ -22,6 +22,11 @@ body {
     padding-left: 1em;
 }
 
+.buttons {
+    display: flex;
+    flex-direction: row;
+}
+
 .topnavbar i {
     color: white;
 }

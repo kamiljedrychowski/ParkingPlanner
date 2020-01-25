@@ -2,6 +2,7 @@
 
 require_once "Repository.php";
 require_once __DIR__ . '//..//Models//User.php';
+require_once __DIR__ . '//..//Models//OtherUser.php';
 
 class UserRepository extends Repository
 {
@@ -11,7 +12,6 @@ class UserRepository extends Repository
         $stmt = $this->database->connect()->prepare('
             SELECT * FROM user, user_data WHERE email = :email and user.id_user_data=user_data.id_user_data
         ');
-        // TODO !!! przemyśleć czy takie zapytanie
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
 
@@ -26,30 +26,51 @@ class UserRepository extends Repository
             $user['email'],
             $user['password'],
             $user['name'],
-            $user['surname']
+            $user['surname'],
+            $user['role']
         );
     }
 
-//    public function getUsers(): array {
-//        $result = [];
-//        $stmt = $this->database->connect()->prepare('
-//            SELECT * FROM users
-//        ');
-//        $stmt->execute();
-//        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-//
-//        foreach ($users as $user) {
-//            $result[] = new User(
-//                $user['email'],
-//                $user['password'],
-//                $user['name'],
-//                $user['surname'],
-//                $user['id']
-//            );
-//        }
-//
-//        return $result;
-//    }
+    public function getActiveUser(string $email): ?OtherUser
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM alluserdata WHERE email = :email
+        ');
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($user == false) {
+            return null;
+        }
+
+        return new OtherUser(
+            $user['id_user_data'],
+            $user['email'],
+            $user['name'],
+            $user['surname'],
+            $user['points'],
+            $user['plate_number'],
+            $user['role']
+        );
+    }
+
+    public function getUsers(): array
+    {
+        try {
+            $stmt = $this->database->connect()->prepare('SELECT * FROM alluserdata
+WHERE email != :email;');
+
+            $stmt->bindParam(':email', $_SESSION['email'], PDO::PARAM_STR);
+            $stmt->execute();
+            $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $user;
+        } catch (PDOException $e) {
+            die();
+        }
+
+    }
 
     public function addUser(string $email, string $password, string $name, string $surname, string $phoneNumber, string $plateNumber, string $brand, string $model, string $cardNumber, string $cardholderName, string $expireDate, int $cvv)
     {
@@ -89,8 +110,22 @@ class UserRepository extends Repository
             $user['email'],
             $user['password'],
             $user['name'],
-            $user['surname']
+            $user['surname'],
+            $user['role']
         );
+    }
+
+    public function delete(int $id): void
+    {
+        try {
+            $stmt = $this->database->connect()->prepare("
+            CALL deleteUser('$id')
+            ");
+            $stmt->execute();
+        }
+        catch(PDOException $e) {
+            die();
+        }
     }
 
     public function getPoints(string $email)
@@ -102,25 +137,23 @@ class UserRepository extends Repository
         $stmt->execute();
 
         $points = $stmt->fetch(PDO::FETCH_ASSOC);
-        $val = [$points['points'],$points['parking_time'], $points['public_transport'],$points['stickers']];
+        $val = [$points['points'], $points['parking_time'], $points['public_transport'], $points['stickers']];
         return json_encode($val);
     }
 
     public function getBonus(string $email, string $bonusName)
     {
-        if($bonusName == 'parking'){
+        if ($bonusName == 'parking') {
             $stmt = $this->database->connect()->prepare("
             CALL addParking('$email')
             ");
             $stmt->execute();
-        }
-        elseif ($bonusName == 'ticket'){
+        } elseif ($bonusName == 'ticket') {
             $stmt = $this->database->connect()->prepare("
             CALL addPublicTransport('$email')
             ");
             $stmt->execute();
-        }
-        elseif ($bonusName == 'sticker'){
+        } elseif ($bonusName == 'sticker') {
             $stmt = $this->database->connect()->prepare("
             CALL addStickers('$email')
             ");

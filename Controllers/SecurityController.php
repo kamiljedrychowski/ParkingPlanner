@@ -27,7 +27,7 @@ class SecurityController extends AppController
                 return;
             }
 
-            if ($user->getPassword() !== $password) {
+            if (!password_verify( $password, $user->getPassword())) {
                 $this->render('login', ['messages' => ['Wrong password!']]);
                 return;
             }
@@ -79,7 +79,8 @@ class SecurityController extends AppController
                 return;
             }
 
-            $user = $userRepository->addUser($email, $password1, $name, $surname, $phoneNumber, $plateNumber, $brand, $model, $cardNumber, $cardholderName, $expireDate, $cvv);
+            $hash = password_hash($password1, PASSWORD_BCRYPT);
+            $user = $userRepository->addUser($email, $hash, $name, $surname, $phoneNumber, $plateNumber, $brand, $model, $cardNumber, $cardholderName, $expireDate, $cvv);
 
             if (!$user) {
                 $this->render('register', ['messages' => ['User with this email exist!']]);
@@ -87,7 +88,8 @@ class SecurityController extends AppController
             }
 
 
-            $_SESSION["id"] = $user->getEmail();
+            $_SESSION["id"] = $user->getId();
+            $_SESSION["email"] = $user->getEmail();
             $_SESSION["role"] = $user->getRole();
             $_SESSION["name"] = $user->getName();
             $_SESSION["surname"] = $user->getSurname();

@@ -87,14 +87,7 @@
     display: flex;
     margin-top: 3em;
     margin-bottom: 2em;
-}
-
-#login {
-    display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 50%;
-    width: 40%;
-    opacity: 1;
 }
 

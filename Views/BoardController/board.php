@@ -3,7 +3,7 @@ if (!isset($_SESSION['id']) and !isset($_SESSION['role']) and !isset($_SESSION['
     die('You are not logged in!');
 }
 
-if (!in_array('ROLE_USER', $_SESSION['role'])) {
+if ($_SESSION['role']!=='ROLE_USER' and $_SESSION['role']!=='ROLE_ADMIN' ) {
     die('You do not have permission to watch this page!');
 }
 ?>
@@ -26,9 +26,16 @@ if (!in_array('ROLE_USER', $_SESSION['role'])) {
 
     <div class="topnavbar">
         <nav class="navbar navbar-dark">
-            <a class="nav-link" href="?page=logout">
-                <i class="fas fa-sign-out-alt">Logout</i>
-            </a>
+            <div class="buttons">
+                <a class="nav-link" href="?page=logout">
+                    <i class="fas fa-sign-out-alt">Logout</i>
+                </a>
+                <?php if($_SESSION['role']=='ROLE_ADMIN'):?>
+                <a class="nav-link" href="?page=admin">
+                    <i class="fas fa-user-cog">Admin Panel</i>
+                </a>
+                <?php endif; ?>
+            </div>
             <img src="../../Public/img/smallLogo.svg" alt="small logo">
             <div class="buttons">
                 <i class="fas fa-user"></i>
