@@ -13,7 +13,7 @@ class Routing
         $this->routes = [
             'board' => [
                 'controller' => 'BoardController',
-                'action' => 'getMap'
+                'action' => 'start'
             ],
             'login' => [
                 'controller' => 'SecurityController',

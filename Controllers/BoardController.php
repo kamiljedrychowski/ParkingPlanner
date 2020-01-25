@@ -1,22 +1,15 @@
 <?php
 
 require_once('AppController.php');
-require_once __DIR__.'//..//Models//Post.php';
-require_once __DIR__.'//..//Database.php';
+require_once __DIR__ . '//..//Database.php';
 require_once __DIR__ . '//..//Repository//UserRepository.php';
 
 class BoardController extends AppController
 {
 
-    public function getMap()
+    public function start()
     {
-        $database = new Database();
-        $database->connect();
-
-        $post1 = new Post('mainMap.svg');
-
-        $data = [$post1];
-        $this->render('board', ['posts' => $data]);
+        $this->render('board');
     }
 
     public function getpointss()
@@ -29,7 +22,7 @@ class BoardController extends AppController
         $user = new UserRepository();
         $temp = $user->getPoints((string)$_POST['mail']);
         http_response_code(200);
-            echo $temp;
+        echo $temp;
     }
 
     public function getbonuss()
@@ -41,23 +34,18 @@ class BoardController extends AppController
         $user = new UserRepository();
         $var = json_decode($user->getPoints((string)$_POST['mail']));
 
-        if($_POST['bonusName'] == 'parking'){
-            if($var[0]<30)
-            {
+        if ($_POST['bonusName'] == 'parking') {
+            if ($var[0] < 30) {
                 echo '[]';
                 return;
             }
-        }
-        elseif ($_POST['bonusName'] == 'ticket'){
-            if($var[0]<15)
-            {
+        } elseif ($_POST['bonusName'] == 'ticket') {
+            if ($var[0] < 15) {
                 echo '[]';
                 return;
             }
-        }
-        elseif ($_POST['bonusName'] == 'sticker'){
-            if($var[0]<50)
-            {
+        } elseif ($_POST['bonusName'] == 'sticker') {
+            if ($var[0] < 50) {
                 echo '[]';
                 return;
             }

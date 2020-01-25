@@ -15,7 +15,13 @@
             <div class="step">
                 <h1>Step I</h1>
                 <h1>Give us Your personal data</h1>
-
+                <?php
+                if (isset($messages)) {
+                    foreach ($messages as $message) {
+                        echo $message;
+                    }
+                }
+                ?>
                 <div class="formreg">
                     <input name="email" type="email" required placeholder="email@email.com">
                     <input name="password1" type="password" required placeholder="password">

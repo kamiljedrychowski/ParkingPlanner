@@ -31,6 +31,15 @@
     </div>
 
     <div class="rightBox" id="rightBox1">
+        <div class="messages">
+            <?php
+            if (isset($messages)) {
+                foreach ($messages as $message) {
+                    echo $message;
+                }
+            }
+            ?>
+        </div>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -79,17 +88,8 @@
         <h2>Sign in!</h2>
         <div id="loginform">
             <form action="?page=login" method="POST" id="login">
-                <div class="messages">
-                    <?php
-                    if (isset($messages)) {
-                        foreach ($messages as $message) {
-                            echo $message;
-                        }
-                    }
-                    ?>
-                </div>
-                <input name="email" type="text" placeholder="email@email.com">
-                <input name="password" type="password" placeholder="password">
+                <input name="email" type="email" required placeholder="email@email.com">
+                <input name="password" type="password" required placeholder="password">
                 <button type="submit">CONTINUE</button>
             </form>
         </div>

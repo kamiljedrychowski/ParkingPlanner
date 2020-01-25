@@ -45,9 +45,6 @@ if ($_SESSION['role'] !== 'ROLE_ADMIN') {
 
 
     <div class="m">
-        <button class="btn btn-dark btn-lg" type="button" onclick="getUsers()">Get all
-            users
-        </button>
         <div class="row">
             <h1 class="col-12 pl-0">ADMIN PANEL</h1>
             <h4 class="mt-4">Your data:</h4>
@@ -83,6 +80,11 @@ if ($_SESSION['role'] !== 'ROLE_ADMIN') {
             </table>
         </div>
 
+        <div>
+            <button class="btn btn-dark btn-lg" type="button" onclick="getUsers()">Get all
+                users
+            </button>
+        </div>
 
     </div>
 

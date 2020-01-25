@@ -139,7 +139,13 @@ text-align: center;
     position: absolute;
     top: 60%;
     left: 5%;
-    color: #2699FB;
     font-size: 6em;
     color: black;
+}
+
+.m {
+    display: flex;
+    flex-direction: column;
+    margin: 5em;
+    min-height: 58em;
 }
